@@ -11,6 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const firstNameInput = document.getElementById("first");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -21,3 +22,25 @@ function launchModal() {
 }
 
 
+// fonction test
+function closeModal() {
+  modalbg.style.display ="none";
+}
+
+const btnClose = document.getElementsByClassName('close')[0]
+console.log(btnClose);
+
+btnClose
+.addEventListener("click", closeModal
+
+);
+
+// form
+
+const form = document.forms[0]
+console.log(form);
+
+form.addEventListener("submit", function(e){
+ e.preventDefault();
+  console.log(firstNameInput.value)
+});
