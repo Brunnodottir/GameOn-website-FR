@@ -22,7 +22,7 @@ function launchModal() {
 }
 
 
-// fonction test
+// close modal form
 function closeModal() {
   modalbg.style.display ="none";
 }
