@@ -163,7 +163,13 @@ form.addEventListener("submit", function(e){
 
 if (
   isFirstValid() && isDateValid() && isLastValid() && isEmailValid && isQuantityValid && isCityValid && isCheckboxValid ) {
-console.log("Ok") // launch modalSubmittedForm + .reset
+launchModal()
+document.querySelector('form').reset();
+window.alert ("Merci ! Formulaire envoyé");
+closeModal();
+
+  
+// launch modalSubmittedForm + .reset
 //+ message (alert ? = formulaire validé !)
   } else {
     console.log('Erreur'); // faire une const check ?
@@ -205,6 +211,7 @@ isCheckboxValid();
 // else return false
 
 //SOUMISSION FORMULAIRE
+
 //* form.addEventListener("submit", (e) =>{ *bloque le raffraichissement de la page = e.preventefault});
 //if (const de validation finale === true )
 // lauch modal completed
