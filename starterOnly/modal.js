@@ -14,20 +14,20 @@ const formData = document.querySelectorAll(".formData");
 const btnClose = document.getElementsByClassName('close')[0]
 
 //Form DOM Elements
-const firstNameInput = document.getElementById("first");
-const lastNameInput = document.getElementById("last");
-const email = document.getElementById("email");
-const birthdateInput = document.getElementById("birthdate");
-const tournoi = document.getElementById("quantity");
+const firstNameInput = document.querySelector("#first");
+const lastNameInput = document.querySelector("#last");
+const email = document.querySelector("#email");
+const birthdateInput = document.querySelector("#birthdate");
+const tournoi = document.querySelector("#quantity");
 const city = document.querySelectorAll("#city .checkbox-input");
-const cityLocation = document.getElementById("city");
-const checkbox1 = document.getElementById("checkbox1")
+const cityLocation = document.querySelector("#city");
+const checkbox1 = document.querySelector("#checkbox1")
 
 // Confirmed form DOM Element
 const confirmModal = document.querySelector(".confirm-modal-submit");
 const btnSubmit = document.getElementsByClassName('btn-submit');
 const btnCloseSubmit = document.getElementsByClassName('close')[1]
-const btnConfirm = document.getElementById("btn-confirm");
+const btnConfirm = document.querySelector("#btn-confirm");
 
 
 // FIRSTNAME Validation
@@ -67,11 +67,10 @@ const isLastValid = () => {
 //EMAIL Validation
 const isEmailValid = () => {
   const value = email.value;
-  const atPosition = value.indexOf("@");
-  const dotPosition = value.lastIndexOf(".");
-  if (atPosition > 1 || dotPosition > atPosition + 2 || dotPosition + 2 <= value.length) {
-    formData[2].setAttribute("data-error-visible", "false")
-    return true;
+  let regexEmail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    if (email.value.trim().match(regexEmail)) {
+        email.parentElement.setAttribute("data-error-visible", "false")
+        return true; 
   } else {
     formData[2].setAttribute("data-error", "Veuillez renseigner une adresse email valide")
     formData[2].setAttribute("data-error-visible", "true")
